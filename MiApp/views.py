@@ -36,8 +36,8 @@ def productos (request):
     return render(request, "MiApp/productos.html",context)
 
 def agregar_producto (request):
-    recurso_form = ProductoForm(request.POST)
-    recurso_form.save()
+    producto_form = ProductoForm(request.POST)
+    producto_form.save()
     context = {"form":ProductoForm(),}
     return render(request, "MiApp/productos.html", context)
     
