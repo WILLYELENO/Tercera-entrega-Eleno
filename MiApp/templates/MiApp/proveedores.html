@@ -1,0 +1,29 @@
+{% extends "MiApp/base.html" %}
+{% load static %}
+
+{% block main %}
+<main class="container">
+  <div class="bg-light p-5 rounded">
+    
+
+    {% if form %}
+    <h1>SECCION PROVEEDORES</h1>
+    <p class="lead">Complete los datos para añadir un proveedor a la base de datos.</p>
+
+    <form action="{% url 'agregar_proveedor' %}" method="post">
+      {% csrf_token %}
+      {{form.as_p}}
+      <input type="submit" value="Agregar">
+    </form>
+    {% else %}
+    <h1>RESULTADO DE BUSQUEDA</h1>
+    <p class="lead">Se han encontrado los siguientes proveedores:.</p>
+    <ul>
+      {%  for prov in proveedor  %}
+      <li> {{prov.id}} - {{ prov.nombre }} - Contacto: {{ prov.contacto}}</li>
+      {% endfor %}
+    {% endif %}
+    </ul>
+  </div>
+</main>
+{% endblock %}

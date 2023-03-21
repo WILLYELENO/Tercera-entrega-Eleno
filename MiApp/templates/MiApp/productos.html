@@ -1,0 +1,16 @@
+{% extends "MiApp/base.html" %}
+{% load static %}
+
+{% block main %}
+<main class="container">
+  <div class="bg-light p-5 rounded">
+    <h1>SECCION PRODUCTOS</h1>
+    <p class="lead">Complete los datos para añadir un recurso a la base de datos.</p>
+    <form action="{% url 'agregar_producto' %}" method="post">
+      {% csrf_token %}
+      {{form.as_p}}
+      <input type="submit" value="Agregar">
+  </form>
+  </div>
+</main>
+{% endblock %}
