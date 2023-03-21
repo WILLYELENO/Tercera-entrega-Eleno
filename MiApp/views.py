@@ -39,7 +39,7 @@ def agregar_producto (request):
     recurso_form = ProductoForm(request.POST)
     recurso_form.save()
     context = {"form":ProductoForm(),}
-    return render(request, "MiApp/servicios.html", context)
+    return render(request, "MiApp/productos.html", context)
     
 def buscar_proveedor (request):
     criterio = request.GET.get("criterio")
